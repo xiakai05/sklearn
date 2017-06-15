@@ -22,6 +22,7 @@ def loadData():
     return X,Y
 
 model=LogisticRegression()
+# model=svm.LinearSVC()
 X,Y=loadData()
 X_train, X_test, y_train, y_test = train_test_split(X,Y,test_size=0.5, random_state=12)
 model.fit(X_train,y_train)
