@@ -1,0 +1,25 @@
+from PIL import Image
+import numpy as np
+from scipy import misc
+import os
+
+
+
+
+def picConvert(pic):
+    tmpName= os.path.basename(pic.filename)
+    img=np.array(pic.convert("L"))
+    (Width, Height) =img.shape
+    for i in range(Width):
+        for j in range(Height):
+            if (img[i,j]<=150):
+                img[i,j]=255
+            else:
+                img[i,j]=0
+    misc.toimage(img, cmin=0, cmax=255).save("/home/drjr/Desktop/clearyzm/"+tmpName,"jpeg")
+
+
+for name in os.listdir("/home/drjr/Desktop/yzm/"):
+    fn = "/home/drjr/Desktop/yzm/" + name
+    img = Image.open(fn)
+    picConvert(img)
