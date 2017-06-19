@@ -6,7 +6,7 @@ from PIL import Image
 ##############################################################################
 # Binarize image data
 
-im = np.array(Image.open('/home/drjr/Desktop/1.png').convert("L"))
+im = np.array(Image.open('/home/drjr/Desktop/p/2hjx').convert("L"))
 h, w = im.shape
 X = [(h - x, y) for x in range(h) for y in range(w) if im[x][y]]
 X = np.array(X)

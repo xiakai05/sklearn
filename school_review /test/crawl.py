@@ -1,12 +1,11 @@
 import requests
+import time
+import random
 
 prefix="51370120140607"
-url="http://xq.cdzk.net/IDExist/"
+url="http://xq.cdzk.net/CaptchaCode?w=78&h=31"
 for i in range(3000):
-    s=str(i)
-    s=s.zfill(4)
-    fullStr=prefix+s
-    param={"id":fullStr}
-    response=requests.get(url,param)
-    if(response.content=="true"):
-        print fullStr
+    response=requests.get(url)
+    if response.status_code==200:
+        open("/home/drjr/Desktop/p/"+str(i),"wb").write(response.content)
+    time.sleep(1)
