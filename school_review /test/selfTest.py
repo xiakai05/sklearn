@@ -14,8 +14,8 @@ def ocr(img):
         return "none"
     return rs
 
-
-for fn in os.listdir("/home/drjr/Desktop/clearyzm/"):
-    f="/home/drjr/Desktop/clearyzm/"+fn
-    rs=ocr(f)
-    print fn +"     "+rs
+dic={}
+for fn in os.listdir("/home/drjr/Desktop/sub/"):
+    pre=fn[0]
+    if pre in ["H","L","Y"]:
+        print fn
